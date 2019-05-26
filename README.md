@@ -5,8 +5,8 @@
 ## 1. 快速开始
 
 ```
-    $appConfig = \Koala\Config\ConfigPool::getConfig("app");
-    $appConfigItem = \Koala\Config\ConfigPool::getConfigItem("app", "level1.level2.level3.hello");
+$appConfig = \Koala\Config\ConfigPool::getConfig("app");
+$appConfigItem = \Koala\Config\ConfigPool::getConfigItem("app", "level1.level2.level3.hello");
 ```
 
 ## 2. 原理介绍
@@ -25,19 +25,19 @@ define('ENVIRONMENT', 'develop');
 ```
 <?php
 return [
-	"host" => "",
-	"api_list" => [
-		"/api/test",
-		"/api/hello",
-	],
-	// 多层级的配置
-	"level1" => [
-		"level2" => [
-			"level3" => [
-				"hello" => "world",
-			],
-		],
-	],
+    "host" => "",
+    "api_list" => [
+        "/api/test",
+        "/api/hello",
+    ],
+    // 多层级的配置
+    "level1" => [
+        "level2" => [
+            "level3" => [
+                "hello" => "world",
+            ],
+        ],
+    ],
 ];
 ```
 
@@ -46,7 +46,7 @@ return [
 ```
 <?php
 return [
-	"host" => "develop_host",
+    "host" => "develop_host",
 ];
 ```
 
@@ -63,19 +63,19 @@ return [
 
 ```
 [
-	"host" => "develop_host",
-	"api_list" => [
-		"/api/test",
-		"/api/hello",
-	],
-	// 多层级的配置
-	"level1" => [
-		"level2" => [
-			"level3" => [
-				"hello" => "world",
-			],
-		],
-	],
+    "host" => "develop_host",
+    "api_list" => [
+        "/api/test",
+        "/api/hello",
+    ],
+    // 多层级的配置
+    "level1" => [
+        "level2" => [
+            "level3" => [
+                "hello" => "world",
+            ],
+        ],
+    ],
 ];
 ```
 
@@ -109,26 +109,27 @@ $appConfigItem = \Koala\Config\ConfigPool::getConfigItem("app", "level1.level2.l
 ### 3.1 获取某个配置文件的值
 
 ```
-	/**
-	 * @param string $configName
-	 * @return array
-	 *
-	 * @throws ConfigException
-	 */
-	Koala\Config\ConfigPool::getConfig($configName = 'app')
+/**
+ * 获取某个配置文件的配置数组
+ * @param string $configName
+ * @return array
+ *
+ * @throws ConfigException
+ */
+Koala\Config\ConfigPool::getConfig($configName = 'app')
 ```
 
 ### 3.2 获取某个配置文件的某个配置项的值
 
 ```
-	/**
-	 * 获取某个配置文件的某个路径下的值，多个层级使用"." 号分隔
-	 * 如果路径下配置不存在，默认返回空字符串。
-	 *
-	 * @param string $configName
-	 * @param string $configPath 如：lv1.lv2
-	 *
-	 * @return mixed
-	 */
-	Koala\Config\ConfigPool::getConfigItem($configName = 'app', $configPath = 'lv1.lv2') {
+/**
+ * 获取某个配置文件的某个路径下的值，多个层级使用"." 号分隔
+ * 如果路径下配置不存在，默认返回空字符串。
+ *
+ * @param string $configName
+ * @param string $configPath 如：lv1.lv2
+ *
+ * @return mixed
+ */
+Koala\Config\ConfigPool::getConfigItem($configName = 'app', $configPath = 'lv1.lv2')
 ```
